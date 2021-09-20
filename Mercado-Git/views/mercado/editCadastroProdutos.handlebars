@@ -1,0 +1,39 @@
+<div class="container">
+
+    <div class="row card ">
+        <div class="col card-body ">
+            {{#each erros}}
+            <div class="alert alert-danger mt-4">{{texto}}</div>
+            {{else}}
+            
+            {{/each}}
+            
+            <h1 class="htext mt-5">Editar Produtos</h1>
+            <form action="/editarProdutos" method="post">
+                <div class="form-group">
+                    <label for="nome_Produto">Nome do Produto</label>
+                    <input class="form-control" onblur="validaNome(value)" type="text" id="nome_Produto" name="nome_Produto"
+                        placeholder="Nome do Produto" required value="{{nome_produto}}">
+                </div>
+                <div class="form-group">
+                    <label for="quantidade_Produto">Quantidade Produto</label>
+                    <input class="form-control" onblur="validaEstoque(value)" type="number" id="quantidade_Produto"
+                        name="quantidade_Produto" placeholder="Quantidade do Produto" required value="{{quantidade_produto}}">
+                </div>
+                <div class="form-group">
+                    <label for="valor_Produto">Valor do Produto</label>
+                    <input class="form-control" onblur="validaValor(value)" type="text" id="valor_produto" name="valor_produto"
+                        placeholder="Valor do Produto" required value="{{valor_produto}}">
+                </div>
+                <div class="form-group">
+                    <label for="codbarras">Codigo de Barras</label>
+                    <input class="form-control" onblur="validaValor(value)" type="text" id="codbarras" name="codbarras"
+                        placeholder="Codigo de Barras" required value="{{codbarras}}">
+                </div>
+                <input type="hidden" name="id" value="{{id_produto}}">
+                <button class="btn btn-dark" onclick="validaBotao()" type="submit" id="enviar">Salvar</button>
+            </form>
+        </div>
+
+    </div>
+</div>
